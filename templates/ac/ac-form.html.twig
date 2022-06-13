@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="container bg-dark">
+                  
+                    {{ form_start(form_Acs,{ 'attr': {'class': 'wizard-big wizard'} }) }}
+                        <div class="jumbotron ">
+                            <div class="row-group ">
+                                <div class="col-lg">
+                                    <div class="form-group ">
+                                        <label class="font-normal">nomComplet</label>
+                                        <div class="input-group ">
+                                            {{ form_widget(form_Acs.nomComplet, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre Nom_complet'} }) }}
+                                        </div>
+                                    </div>
+                                   
+                                     <div class="form-group">
+                                        <label class="font-normal">Login</label>
+                                        <div class="input-group">
+                                            {{ form_widget(form_Acs.email, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre login'} }) }}
+                                        </div>
+                                    </div>
+                                     <div class="form-group">
+                                        <label class="font-normal">password</label>
+                                        <div class="input-group">
+                                            {{ form_widget(form_Acs.password, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre password'}  }) }}
+                                        </div>
+                                    </div>
+                                    
+                        <div class="actions clearfix">
+                            <div style="margin-top: 30px; ">
+                                {{ form_widget(form_Acs.submit, { 'attr': {'class': 'btn btn-sm btn-primary m-t-n-xs justify-content-center'} }) }}
+                            </div>
+                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {{ form_end(form_Acs) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

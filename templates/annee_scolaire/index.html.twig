@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AcController!{% endblock %}
+
+{% block body %}
+    <h1>BIENVENU LISTE ANNEE_SCOLAIRE</h1>
+
+<table class="table table-hover">
+  <thead class="border-5 bg-success text-white">
+    <tr>
+    
+      <th scope="col">ANNEE_SCOLAIRE</th>
+      <th scope="col">ACTION</th>
+
+  <button class="btn btn-success  "><a class="dropdown-item text-white " href="/InscriptionEtudiant">Ajouter Etudiant</a></button>
+    </tr>
+  </thead>
+  <tbody>
+    {# $i = 1; #}
+        {% for anneeScolaire in anneescolaires%}
+        <tr class="text-black"  >        
+            
+           <td> {{anneeScolaire.libelle}}</td>
+
+            <td>
+            <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-secondary btn-">detail</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-primary btn-">modifier</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-danger btn-">supprimer</a>
+            </td>
+        </tr>     
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}

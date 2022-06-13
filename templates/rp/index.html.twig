@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RpController!{% endblock %}
+
+{% block body %}
+    <h1>BIENVENU LISTE RP</h1>
+
+<table class="table table-hover">
+  <thead class="border-5 bg-success text-white">
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">NOM_COMPLET</th>
+      <th scope="col">ROLE</th>
+      <th scope="col">ACTION</th>
+  <button class="btn btn-success  "><a class="dropdown-item text-white " href="/InscriptionEtudiant">Ajouter Etudiant</a></button>
+    </tr>
+  </thead>
+  <tbody>
+    {# $i = 1; #}
+        {% for rp in rps%}
+        <tr class="text-blrpk"  >        
+            
+           <td> {{rp.nomComplet}}</td>
+            <td>{{rp.Email}}</td>
+            {# <td>{{rp.roles}}</td> #}
+
+            <td>
+            <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-secondary btn-">detail</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-primary btn-">modifier</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-danger btn-">supprimer</a>
+            </td>
+        </tr>     
+{% endfor %}
+  </tbody>
+</table>
+{% endblock %}
