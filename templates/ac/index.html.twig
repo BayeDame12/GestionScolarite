@@ -3,16 +3,18 @@
 {% block title %}Hello AcController!{% endblock %}
 
 {% block body %}
-    <h1>BIENVENU LISTE AC</h1>
-
+  <h1 class="text-center text-white bg-dark">BIENVENUE A ODC SCHOOL DEV WEV P4</h1>
+  <div class=" d-flex justify-content-center   p-5 bg bg-dark style d-flex ">
+          <h1 class="btn btn-light   fw-bold mb-0 border  text-blaxk" >LISTE DES AC</h1>
+          <a class="btn btn-light   fw-bold mb-0 border  text-blaxk ml-50 offset-3" aria-current="page" href="logout">+ Ajouter AC</a>   
+  </div>
 <table class="table table-hover">
-  <thead class="border-5 bg-success text-white">
+  <thead class="border-5 bg-dark text-white">
     <tr>
       <th scope="col">#ID</th>
       <th scope="col">NOM_COMPLET</th>
       <th scope="col">ROLE</th>
       <th scope="col">ACTION</th>
-  <button class="btn btn-success  "><a class="dropdown-item text-white " href="/InscriptionEtudiant">Ajouter Etudiant</a></button>
     </tr>
   </thead>
   <tbody>

@@ -6,35 +6,35 @@
             <div class="ibox">
                 <div class="container bg-dark">
                   
-                    {{ form_start(form_classes,{ 'attr': {'class': 'wizard-big wizard'} }) }}
+                    {{ form_start(form_Classes,{ 'attr': {'class': 'wizard-big wizard'} }) }}
                         <div class="jumbotron ">
                             <div class="row-group ">
                                 <div class="col-lg">
                                     <div class="form-group ">
                                         <label class="font-normal">Libelle</label>
                                         <div class="input-group ">
-                                            {{ form_widget(form_classes.libelle, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre Libelle'} }) }}
+                                            {{ form_widget(form_Classes.libelle, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre Libelle'} }) }}
                                         </div>
                                     </div>
 
                                       <div class="form-group ">
                                         <label class="font-normal">Filiere</label>
                                         <div class="input-group ">
-                                            {{ form_widget(form_classes.filliere, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre filliere'} }) }}
+                                            {{ form_widget(form_Classes.filliere, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre filliere'} }) }}
                                         </div>
                                     </div>
 
                                       <div class="form-group ">
                                         <label class="font-normal">niveau</label>
                                         <div class="input-group ">
-                                            {{ form_widget(form_classes.niveau, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre Niveau'} }) }}
+                                            {{ form_widget(form_Classes.niveau, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre Niveau'} }) }}
                                         </div>
                                     </div>
                                    
                          
                         <div class="actions clearfix">
                             <div style="margin-top: 30px; ">
-                                {{ form_widget(form_classes.submit, { 'attr': {'class': 'btn btn-sm btn-primary m-t-n-xs justify-content-center'} }) }}
+                                {{ form_widget(form_Classes.submit, { 'attr': {'class': 'btn btn-sm btn-primary m-t-n-xs justify-content-center'} }) }}
                             </div>
                         </div>
                                     
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                         </div>
-                    {{ form_end(form_classes) }}
+                    {{ form_end(form_Classes) }}
                 </div>
             </div>
         </div>

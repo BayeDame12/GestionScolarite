@@ -3,15 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Etudiant;
-use App\Form\EtudiantType;
 use App\Entity\Inscription;
-use App\Form\InscriptionType;
+use App\Form\InscriptionFormType;
+use App\Repository\ACRepository;
+use App\Repository\AnneeScolaireRepository;
+use App\Repository\ClasseRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Routing\Annotation\Route;
 
 class InscriptionController extends AbstractController
 {
@@ -22,44 +26,34 @@ class InscriptionController extends AbstractController
             'controller_name' => 'InscriptionController',
         ]);
     }
-
-
-
-        /**
- * @Route("/addInscription", name="add_inscription")
- */
-
-
-public function addInscription(Request $request, EntityManagerInterface $entityManager,UserPasswordHasherInterface $PasswordHascher): Response  
-{
-    $inscription = new Inscription();
-    $etudiant = new Etudiant();
-
-    $formIns = $this->createForm(InscriptionType::class, $inscription);
-    $form = $this->createForm(EtudiantType::class, $etudiant);
-
-    $formIns->handleRequest($request);
-    $form->handleRequest($request);
-
-    if($formIns->isSubmitted() && $formIns->isValid())
-
+    #[Route('/inscription_etudiant',name:'app_add_inscription_etudiant')]
+    public function addInscriptionEtudiant(ManagerRegistry $registry,UserPasswordHasherInterface $hasher,Request $request,EntityManagerInterface $manager)
     {
-      
-       $inscription->setEtudiant($etudiant);
-       $entityManager->persist($etudiant);
-       
-       
-
-
-        $entityManager->flush();
-        $this->redirectToRoute('app_ac');
-
-
-
-    }
-    return $this->render("inscription/inscription-form.html.twig", [
-        "form_title" => "Ajouter un inscription",
-        "form_inscriptions" => $formIns->createView(),
+     $acRepo=new ACRepository($registry);
+     $classRepo = new ClasseRepository($registry);
+     $anneeRepo = new AnneeScolaireRepository($registry);
+     
+     $ins= new Inscription();
+     $etudiant= new Etudiant();
+     $form=$this->createForm(InscriptionFormType::class,$ins);
+     $form->handleRequest($request);
+     if ($form->isSubmitted() && $form->isValid()) {
+         $passwword = $hasher->hashPassword($etudiant,"Passer123");
+         $matricule = 'STU-'.date('Ymdhis');
+         $etudiant->setNomComplet($request->get('inscription_form')['etudiant']['nomComplet']);
+         $etudiant->setEmail($request->get('inscription_form')['etudiant']['email']);
+         $etudiant->setAdresse($request->get('inscription_form')['etudiant']['adresse']);
+         $etudiant->setSexe($request->get('inscription_form')['etudiant']['sexe']);
+         $etudiant->setPassword($passwword);
+         $etudiant->setMatricule($matricule);
+        //  dd($ins);
+         $manager->persist($etudiant);
+         $ins->setEtudiant($etudiant);
+         $manager->persist($ins);
+         $manager->flush();
+        }
+     return $this->render('inscription/ajout.html.twig', [
+        'form' => $form->createView()
     ]);
-}
+    }
 }

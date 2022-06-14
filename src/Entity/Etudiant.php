@@ -36,11 +36,6 @@ class Etudiant extends User
         $this->demandes = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     public function getMatricule(): ?string
     {
         return $this->matricule;

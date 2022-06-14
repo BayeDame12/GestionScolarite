@@ -19,7 +19,7 @@ class ACController extends AbstractController
 	public function __construct()
 	{
 	}
-    #[Route('/ac', name: 'app_ac')]
+    #[Route('/listerAc', name: 'app_ac')]
     public function index(ACRepository $repos): Response
     {
         return $this->render('ac/index.html.twig', [
@@ -49,6 +49,8 @@ public function addAC(Request $request, EntityManagerInterface $entityManager,Us
         $ac->setRoles(["ROLE_AC"]);
         $ac->setPassword($hasher);
         $entityManager->persist($ac);
+
+
         $entityManager->flush();
         $this->redirectToRoute('app_ac');
     }

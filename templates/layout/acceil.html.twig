@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
-
 {% block title %}Hello RpController!{% endblock %}
 
 {% block body %}
 
- <h1 class="text-center text-danger bg-dark">ODC SCHOOL DEV WEV P4</h1>
+{%if (not app.user)%}
+
+ <h1 class="text-center text-white bg-dark">TOUBA ODC SCHOOL DEV WEV P4</h1>
 <div class=" d-flex justify-content-center   p-5 bg bg-dark style">
         <a class="btn btn-light   fw-bold mb-0 border  text-blaxk" aria-current="page" href="logout">Se Connecter</a>
     
 </div>
+{%endif%}
     
 {% endblock %}
 

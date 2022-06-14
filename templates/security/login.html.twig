@@ -16,7 +16,7 @@
         </div>
     {% endif %}
    <div class="container col-6 bg-dark mt-4">
-    <h1 class="h3 mb-3 font-weight-bold center text-white">CONNEXION</h1>
+    <h1 class="h3 mb-3 font-weight-bold center text-white offset-5">CONNEXION</h1>
     <label for="inputEmail" class="text-white">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email"  autofocus>
     <label for="inputPassword" class="text-white">Password</label>
@@ -25,6 +25,6 @@
     <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"
    </div>
 
-    <button class="btn btn-light   fw-bold mb-0 border  text-blaxk  p-2" type="submit">Connexion</button>
+    <button class="btn btn-light   fw-bold mb-0 border  text-blaxk  p-2 offset-5" type="submit">Connexion</button>
 </form>
 {% endblock %}

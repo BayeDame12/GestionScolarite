@@ -2,18 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\ProfesseurRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Personne;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ProfesseurRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: ProfesseurRepository::class)]
-class Professeur
+class Professeur extends Personne
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+ 
 
     #[ORM\Column(type: 'string', length: 255)]
     private $grade;

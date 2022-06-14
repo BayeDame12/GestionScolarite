@@ -3,18 +3,47 @@
 {% block title %}Hello EtudiantController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+ <h1 class="text-center text-danger bg-dark">BIENVENUE A ODC SCHOOL DEV WEV P4</h1>
+<div class=" d-flex justify-content-center   p-5 bg bg-dark style d-flex ">
+        <h1 class="btn btn-light   fw-bold mb-0 border  text-blaxk" >LISTE DES ETUDIANT INSCRIS</h1>
+        <a class="btn btn-light   fw-bold mb-0 border  text-blaxk ml-50" aria-current="page" href="logout">+ Ajouter Etudiant</a>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/mouhamed/GestionScolaire/src/Controller/EtudiantController.php'|file_link(0) }}">src/Controller/EtudiantController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/mouhamed/GestionScolaire/templates/etudiant/index.html.twig'|file_link(0) }}">templates/etudiant/index.html.twig</a></code></li>
-    </ul>
+    
 </div>
+<table class="table table-hover">
+  <thead class="border-5 bg-dark text-white">
+    <tr>
+      <th scope="col">#ID</th>
+      <th scope="col">NOM_COMPLET</th>
+      <th scope="col">ROLE</th>
+      <th scope="col">MATRICULE</th>
+      <th scope="col">SEXE</th>
+      <th scope="col">ADRESSE</th>
+
+      <th scope="col">ACTION</th>
+    
+  </tr>
+  </thead>
+  <tbody>
+    {# $i = 1; #}
+        {% for etudiant in etudiants%}
+        <tr class="text-bletudiantk"  >        
+            
+           <td> {{etudiant.nomComplet}}</td>
+            <td>{{etudiant.Email}}</td>
+            {# <td>{{etudiant.Roles}}</td> #}
+            <td>{{etudiant.Matricule}}</td>
+            <td>{{etudiant.Sexe}}</td>
+            <td>{{etudiant.Adresse}}</td>
+
+
+            <td>
+            <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-secondary btn-">detail</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-primary btn-">modifier</a>
+              <a href="/Etudiant/<?=$p->id_personne?>" class="btn btn-danger btn-">supprimer</a>
+            </td>
+        </tr>     
+{% endfor %}
+  </tbody>
+</table>
 {% endblock %}

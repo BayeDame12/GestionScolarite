@@ -25,16 +25,16 @@
                                             {{ form_widget(form_etudiants.email, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre login'} }) }}
                                         </div>
                                     </div>
-                                     <div class="form-group">
+                                     {# <div class="form-group">
                                         <label class="font-normal">password</label>
                                         <div class="input-group">
                                             {{ form_widget(form_etudiants.password, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre password'}  }) }}
                                         </div>
-                                    </div>
+                                    </div> #}
                                      <div class="form-group">
-                                        <label class="font-normal">Matricule</label>
+                                        <label class="font-normal">sexe</label>
                                         <div class="input-group">
-                                            {{ form_widget(form_etudiants.matricule, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre password'}  }) }}
+                                            {{ form_widget(form_etudiants.sexe, { 'attr': {'class': 'form-control','placeholder':'veiller saisir votre password'}  }) }}
                                         </div>
                                     </div>
                                      <div class="form-group">
@@ -45,11 +45,10 @@
                                     </div>
                                     
                                     
-                        <div class="actions clearfix">
-                            <div style="margin-top: 30px; ">
-                                {{ form_widget(form_etudiants.submit, { 'attr': {'class': 'btn btn-sm btn-primary m-t-n-xs justify-content-center'} }) }}
-                            </div>
-                        </div>
+                                    <div class=" d-flex justify-content-center   p-5 bg bg-dark style">
+                                    
+                                    </div> 
+    <button class="btn btn-light   fw-bold mb-0 border  text-blaxk  p-2 offset-5" type="submit">Connexion</button>
                                     
                                     </div>
                                 </div>

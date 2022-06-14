@@ -6,7 +6,7 @@ use App\Repository\InscriptionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InscriptionRepository::class)]
-class Inscription
+class Inscription 
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
